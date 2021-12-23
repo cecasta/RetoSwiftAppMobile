@@ -1,0 +1,6 @@
+framework module Pods_RetoSophos_RetoSophosUITests {
+  umbrella header "Pods-RetoSophos-RetoSophosUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

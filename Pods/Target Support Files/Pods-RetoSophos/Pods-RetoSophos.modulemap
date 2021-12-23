@@ -1,0 +1,6 @@
+framework module Pods_RetoSophos {
+  umbrella header "Pods-RetoSophos-umbrella.h"
+
+  export *
+  module * { export * }
+}
