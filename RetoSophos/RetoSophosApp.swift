@@ -13,12 +13,14 @@ struct RetoSophosApp: App {
     
     var body: some Scene {
         WindowGroup {
-            let viewModel = AppViewModel()
+            let generalModel = GeneralViewModel()
             ContentView()
-            .environmentObject(viewModel)        }
+            .environmentObject(generalModel)        }
     }
 }
 
+
+// initiall firebase
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         

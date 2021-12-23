@@ -15,6 +15,12 @@
 		492CFFC4277290BA00B4001C /* RetoSophosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CFFC3277290BA00B4001C /* RetoSophosUITests.swift */; };
 		492CFFC6277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CFFC5277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift */; };
 		492CFFD72772984100B4001C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 492CFFD62772984100B4001C /* GoogleService-Info.plist */; };
+		49606798277401A70095777D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49606797277401A70095777D /* Login.swift */; };
+		4960679A277404470095777D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49606799277404470095777D /* LoginViewModel.swift */; };
+		4983BC0C2774322600E6AE15 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4983BC0B2774322600E6AE15 /* CreateAccount.swift */; };
+		4983BC0E2774325600E6AE15 /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4983BC0D2774325600E6AE15 /* CreateAccountViewModel.swift */; };
+		4983BC102774343700E6AE15 /* GeneralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4983BC0F2774343700E6AE15 /* GeneralViewModel.swift */; };
+		4983BC1227743D4800E6AE15 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4983BC1127743D4800E6AE15 /* Home.swift */; };
 		4F21A256B612B04D91075E56 /* Pods_RetoSophosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAD98FC6DEFC93F2C93B71F /* Pods_RetoSophosTests.framework */; };
 		DA01D40D2AC0636AB0EBCCB3 /* Pods_RetoSophos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9978F7573B832347F39B053E /* Pods_RetoSophos.framework */; };
 		EEC73C8C27B59F039AE2E309 /* Pods_RetoSophos_RetoSophosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DAEB4FE6AA31691F70E965 /* Pods_RetoSophos_RetoSophosUITests.framework */; };
@@ -49,6 +55,12 @@
 		492CFFC3277290BA00B4001C /* RetoSophosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoSophosUITests.swift; sourceTree = "<group>"; };
 		492CFFC5277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoSophosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		492CFFD62772984100B4001C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49606797277401A70095777D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		49606799277404470095777D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		4983BC0B2774322600E6AE15 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		4983BC0D2774325600E6AE15 /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		4983BC0F2774343700E6AE15 /* GeneralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewModel.swift; sourceTree = "<group>"; };
+		4983BC1127743D4800E6AE15 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		4FAD98FC6DEFC93F2C93B71F /* Pods_RetoSophosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RetoSophosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		566BD93C9333EE92AB6EE9C5 /* Pods-RetoSophosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RetoSophosTests.debug.xcconfig"; path = "Target Support Files/Pods-RetoSophosTests/Pods-RetoSophosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D6BEDACDDD3F34A02ACB7E4 /* Pods-RetoSophos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RetoSophos.release.xcconfig"; path = "Target Support Files/Pods-RetoSophos/Pods-RetoSophos.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +125,8 @@
 		492CFFA7277290B700B4001C /* RetoSophos */ = {
 			isa = PBXGroup;
 			children = (
+				49606796277400160095777D /* ViewModel */,
+				496067942773FFE10095777D /* View */,
 				492CFFD62772984100B4001C /* GoogleService-Info.plist */,
 				492CFFA8277290B700B4001C /* RetoSophosApp.swift */,
 				492CFFAA277290B700B4001C /* ContentView.swift */,
@@ -145,6 +159,26 @@
 				492CFFC5277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift */,
 			);
 			path = RetoSophosUITests;
+			sourceTree = "<group>";
+		};
+		496067942773FFE10095777D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49606797277401A70095777D /* Login.swift */,
+				4983BC0B2774322600E6AE15 /* CreateAccount.swift */,
+				4983BC1127743D4800E6AE15 /* Home.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49606796277400160095777D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				49606799277404470095777D /* LoginViewModel.swift */,
+				4983BC0D2774325600E6AE15 /* CreateAccountViewModel.swift */,
+				4983BC0F2774343700E6AE15 /* GeneralViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		88A2A85D69A6C6CBA0F8F51C /* Pods */ = {
@@ -409,7 +443,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4960679A277404470095777D /* LoginViewModel.swift in Sources */,
+				49606798277401A70095777D /* Login.swift in Sources */,
+				4983BC0C2774322600E6AE15 /* CreateAccount.swift in Sources */,
 				492CFFAB277290B700B4001C /* ContentView.swift in Sources */,
+				4983BC102774343700E6AE15 /* GeneralViewModel.swift in Sources */,
+				4983BC0E2774325600E6AE15 /* CreateAccountViewModel.swift in Sources */,
+				4983BC1227743D4800E6AE15 /* Home.swift in Sources */,
 				492CFFA9277290B700B4001C /* RetoSophosApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
