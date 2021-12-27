@@ -15,6 +15,10 @@
 		492CFFC4277290BA00B4001C /* RetoSophosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CFFC3277290BA00B4001C /* RetoSophosUITests.swift */; };
 		492CFFC6277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CFFC5277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift */; };
 		492CFFD72772984100B4001C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 492CFFD62772984100B4001C /* GoogleService-Info.plist */; };
+		49E3FD10277957E400AA7C18 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3FD0F277957E400AA7C18 /* AppViewModel.swift */; };
+		49E3FD122779586700AA7C18 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3FD112779586700AA7C18 /* Login.swift */; };
+		49E3FD14277958E400AA7C18 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3FD13277958E400AA7C18 /* CreateAccount.swift */; };
+		49E3FD1827795FD100AA7C18 /* TouchIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3FD1727795FD100AA7C18 /* TouchIDButton.swift */; };
 		4F21A256B612B04D91075E56 /* Pods_RetoSophosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FAD98FC6DEFC93F2C93B71F /* Pods_RetoSophosTests.framework */; };
 		DA01D40D2AC0636AB0EBCCB3 /* Pods_RetoSophos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9978F7573B832347F39B053E /* Pods_RetoSophos.framework */; };
 		EEC73C8C27B59F039AE2E309 /* Pods_RetoSophos_RetoSophosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DAEB4FE6AA31691F70E965 /* Pods_RetoSophos_RetoSophosUITests.framework */; };
@@ -49,6 +53,10 @@
 		492CFFC3277290BA00B4001C /* RetoSophosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoSophosUITests.swift; sourceTree = "<group>"; };
 		492CFFC5277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoSophosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		492CFFD62772984100B4001C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49E3FD0F277957E400AA7C18 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		49E3FD112779586700AA7C18 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		49E3FD13277958E400AA7C18 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		49E3FD1727795FD100AA7C18 /* TouchIDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDButton.swift; sourceTree = "<group>"; };
 		4FAD98FC6DEFC93F2C93B71F /* Pods_RetoSophosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RetoSophosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		566BD93C9333EE92AB6EE9C5 /* Pods-RetoSophosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RetoSophosTests.debug.xcconfig"; path = "Target Support Files/Pods-RetoSophosTests/Pods-RetoSophosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D6BEDACDDD3F34A02ACB7E4 /* Pods-RetoSophos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RetoSophos.release.xcconfig"; path = "Target Support Files/Pods-RetoSophos/Pods-RetoSophos.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +121,8 @@
 		492CFFA7277290B700B4001C /* RetoSophos */ = {
 			isa = PBXGroup;
 			children = (
+				49E3FD1627795E1300AA7C18 /* ViewModel */,
+				49E3FD1527795E0C00AA7C18 /* View */,
 				492CFFD62772984100B4001C /* GoogleService-Info.plist */,
 				492CFFA8277290B700B4001C /* RetoSophosApp.swift */,
 				492CFFAA277290B700B4001C /* ContentView.swift */,
@@ -145,6 +155,24 @@
 				492CFFC5277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift */,
 			);
 			path = RetoSophosUITests;
+			sourceTree = "<group>";
+		};
+		49E3FD1527795E0C00AA7C18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49E3FD13277958E400AA7C18 /* CreateAccount.swift */,
+				49E3FD112779586700AA7C18 /* Login.swift */,
+				49E3FD1727795FD100AA7C18 /* TouchIDButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49E3FD1627795E1300AA7C18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				49E3FD0F277957E400AA7C18 /* AppViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		88A2A85D69A6C6CBA0F8F51C /* Pods */ = {
@@ -411,6 +439,10 @@
 			files = (
 				492CFFAB277290B700B4001C /* ContentView.swift in Sources */,
 				492CFFA9277290B700B4001C /* RetoSophosApp.swift in Sources */,
+				49E3FD1827795FD100AA7C18 /* TouchIDButton.swift in Sources */,
+				49E3FD14277958E400AA7C18 /* CreateAccount.swift in Sources */,
+				49E3FD10277957E400AA7C18 /* AppViewModel.swift in Sources */,
+				49E3FD122779586700AA7C18 /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
