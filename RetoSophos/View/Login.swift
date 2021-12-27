@@ -11,8 +11,8 @@ import LocalAuthentication
 struct Login: View {
     @StateObject var loginModel = LoginViewModel()
     @StateObject var generalModel = GeneralViewModel()
-    // when firts time user logged in via email store this for future biometric login
-    @AppStorage("storage_User") var user = "STORED_EMAIL_ID"
+    @State var email = ""
+    @State var password = ""
     
     var body: some View {
         VStack {
@@ -23,23 +23,23 @@ struct Login: View {
             
             VStack {
                 // input
-                TextField("Correo Electrónico", text: $generalModel.email)
+                TextField("Correo Electrónico", text: $email)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
                     .background(Color(.secondarySystemBackground))
                 // input
-                SecureField("Contraseña", text: $generalModel.password)
+                SecureField("Contraseña", text: $password)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
                     .background(Color(.secondarySystemBackground))
                 // button
                 Button(action:{
-                    guard !generalModel.email.isEmpty, !generalModel.password.isEmpty else {
+                    guard !email.isEmpty, !password.isEmpty else {
                         return
                     }
-                    loginModel.signIn(email: generalModel.email, password: generalModel.password)
+                    loginModel.verifyUser(email: email, password: password)
                 }, label: {
                     Text("Iniciar Sesión")
                         .foregroundColor(Color.white)
@@ -47,8 +47,11 @@ struct Login: View {
                         .background(Color.red)
                         .cornerRadius(8)
                 })
-                    .opacity(generalModel.email != "" && generalModel.password != "" ? 1 : 0.5)
-                    .disabled(generalModel.email != "" && generalModel.password != "" ? false : true)
+                .opacity(email != "" && password != "" ? 1 : 0.5)
+                .disabled(email != "" && password != "" ? false : true)
+                .alert(isPresented: $loginModel.alert, content: {
+                        Alert(title: Text("Error"), message: Text(loginModel.alertMsg), dismissButton: .destructive(Text("OK")))
+                    })
                 // button biometric faceID
                 if loginModel.getBioMetricStatus() {
                     Button(action: loginModel.authenticateUser, label: {
@@ -63,6 +66,24 @@ struct Login: View {
                 // link
                 NavigationLink("Crear cuenta", destination: CreateAccount())
                     .padding()
+                    .alert(isPresented: $loginModel.store_Info, content: {
+                        Alert(title: Text("Mensaje"), message: Text("Quieres guardar usuario y contraseña????"), primaryButton:
+                                    .default(Text("Aceptar"), action: {
+                            // storing Info for Biometric....
+                            loginModel.Stored_User = generalModel.email
+                            loginModel.Stored_Password = generalModel.password
+                            withAnimation{
+                                loginModel.logged = true
+                                self.generalModel.signedIn = true
+                            }
+                        }), secondaryButton: .cancel({
+                            // redirecting to home
+                            withAnimation{
+                                loginModel.logged = true
+                                self.generalModel.signedIn = true
+                            }
+                        }))
+                    })
                 
             }
             .padding()

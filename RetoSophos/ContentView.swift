@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @EnvironmentObject var generalViewModel: GeneralViewModel
+    @StateObject var generalViewModel = GeneralViewModel()
     
     var body: some View {
         NavigationView {
@@ -31,10 +31,6 @@ struct ContentView: View {
         }
     }
 }
-
-
-
-
 
 
 struct ContentView_Previews: PreviewProvider {

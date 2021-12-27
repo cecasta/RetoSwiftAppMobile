@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateAccount: View {
     @State var email = ""
     @State var password = ""
-    @EnvironmentObject var viewModel: CreateAccountViewModel
+    @StateObject var viewModel = CreateAccountViewModel()
     
     var body: some View {
             VStack {

@@ -13,9 +13,7 @@ struct RetoSophosApp: App {
     
     var body: some Scene {
         WindowGroup {
-            let generalModel = GeneralViewModel()
-            ContentView()
-            .environmentObject(generalModel)        }
+            ContentView()       }
     }
 }
 

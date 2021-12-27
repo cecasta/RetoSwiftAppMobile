@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Home: View {
+    @StateObject var loginModel = LoginViewModel()
     var body: some View {
         
         VStack{
@@ -17,7 +18,7 @@ struct Home: View {
                 .preferredColorScheme(.light)
             
             Button(action: {
-                viewLoginModel.signOut()
+                loginModel.signOut()
             }, label: {Text("Cerrar sesión")
                     .frame(width: 200, height: 50)
                     .background(Color.green)
