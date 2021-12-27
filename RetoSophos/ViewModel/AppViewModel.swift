@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Foundation
 import LocalAuthentication
 import FirebaseAuth
 
 class AppViewModel: ObservableObject {
     let auth = Auth.auth()
+    let URL_BASE = "https://6w33tkx4f9.execute-api.us-east-1.amazonaws.com"
+    @Published var client = ClientSophos(id: "", nombre: "", apellido: "", acceso: false, admin: false)
     @Published var signedIn = false
     @Published var email = ""
     @Published var password = ""
@@ -24,20 +27,7 @@ class AppViewModel: ObservableObject {
     var isSignedIn: Bool {
         return auth.currentUser != nil
     }
-/*    func signIn() {
-        auth.signIn(withEmail: email, password: password) { [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-            
-            // Success
-            DispatchQueue.main.async {
-                self?.signedIn = true
-            }
-            
-        }
-    }
-*/
+    
     func signUp(email: String, password: String) {
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil, error == nil else {
@@ -61,7 +51,6 @@ class AppViewModel: ObservableObject {
     
     func getBioMetricStatus()-> Bool{
         let scanner = LAContext()
-        print(email == Stored_User)
         if email == Stored_User &&
             scanner.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: .none) {
             return true
@@ -88,25 +77,44 @@ class AppViewModel: ObservableObject {
     }
     
     func verifyUser(){
-            auth.signIn(withEmail: email, password: password) { (res, err) in
-                if let error = err {
-                    self.alertMsg = error.localizedDescription
-                    self.alert.toggle()
-                    print("error en sign")
-                    return
-                }
-              
-                // Else Goto Home...
-               
+
+        
+        let path = URL_BASE+"/RS_Usuarios?idUsuario="+email+"&clave="+password
+        guard let url = URL(string: path) else {return}
+        let search =  URLSession.shared.dataTask(with: url) { data,
+            _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            // convert to User
+            do {
+                let userResponse = try JSONDecoder().decode(ClientSophos.self, from: data)
+
+                
                 if self.Stored_User == "" || self.Stored_Password == "" {
                     self.store_Info.toggle()
                     return
                 }
-                
                 DispatchQueue.main.async {
+                    self.client = userResponse
                     self.signedIn = true
+                    print(userResponse)
                 }
+                
             }
-    }
+            catch {
+                print("se fue por error autenticacion sophos")
+                DispatchQueue.main.async{
+                    self.alertMsg = "Error autenticacón Sophos"
+                    self.alert = true
+                }
+                
+                print(error)
+            }
+            
+        }
+        search.resume()
+        
 
+    }
 }

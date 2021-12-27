@@ -58,13 +58,15 @@ struct Login: View {
                         })
                             .opacity(viewModel.email != "" && viewModel.password != "" ? 1 : 0.5)
                             .disabled(viewModel.email != "" && viewModel.password != "" ? false : true)
-                            .alert(isPresented: $viewModel.alert, content: {
-                                         Alert(title: Text("Error"), message: Text(viewModel.alertMsg), dismissButton: .destructive(Text("OK")))
-                                     })
+
                         Spacer()
                         if viewModel.getBioMetricStatus() {
                             TouchIDButton(isValid: $isTouchIdValid)
                         }
+                    }
+                    Spacer()
+                    if viewModel.alert {
+                        Text(viewModel.alertMsg)
                     }
                     NavigationLink("Crear cuenta", destination: CreateAccount())
                         .padding()

@@ -15,6 +15,7 @@
 		492CFFC4277290BA00B4001C /* RetoSophosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CFFC3277290BA00B4001C /* RetoSophosUITests.swift */; };
 		492CFFC6277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492CFFC5277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift */; };
 		492CFFD72772984100B4001C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 492CFFD62772984100B4001C /* GoogleService-Info.plist */; };
+		49D76B35277A5C0000912E74 /* ClientSophos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D76B34277A5C0000912E74 /* ClientSophos.swift */; };
 		49E3FD10277957E400AA7C18 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3FD0F277957E400AA7C18 /* AppViewModel.swift */; };
 		49E3FD122779586700AA7C18 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3FD112779586700AA7C18 /* Login.swift */; };
 		49E3FD14277958E400AA7C18 /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E3FD13277958E400AA7C18 /* CreateAccount.swift */; };
@@ -53,6 +54,7 @@
 		492CFFC3277290BA00B4001C /* RetoSophosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoSophosUITests.swift; sourceTree = "<group>"; };
 		492CFFC5277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetoSophosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		492CFFD62772984100B4001C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49D76B34277A5C0000912E74 /* ClientSophos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSophos.swift; sourceTree = "<group>"; };
 		49E3FD0F277957E400AA7C18 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		49E3FD112779586700AA7C18 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		49E3FD13277958E400AA7C18 /* CreateAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		492CFFA7277290B700B4001C /* RetoSophos */ = {
 			isa = PBXGroup;
 			children = (
+				49D76B2B277A401E00912E74 /* Model */,
 				49E3FD1627795E1300AA7C18 /* ViewModel */,
 				49E3FD1527795E0C00AA7C18 /* View */,
 				492CFFD62772984100B4001C /* GoogleService-Info.plist */,
@@ -155,6 +158,14 @@
 				492CFFC5277290BA00B4001C /* RetoSophosUITestsLaunchTests.swift */,
 			);
 			path = RetoSophosUITests;
+			sourceTree = "<group>";
+		};
+		49D76B2B277A401E00912E74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				49D76B34277A5C0000912E74 /* ClientSophos.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49E3FD1527795E0C00AA7C18 /* View */ = {
@@ -437,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D76B35277A5C0000912E74 /* ClientSophos.swift in Sources */,
 				492CFFAB277290B700B4001C /* ContentView.swift in Sources */,
 				492CFFA9277290B700B4001C /* RetoSophosApp.swift in Sources */,
 				49E3FD1827795FD100AA7C18 /* TouchIDButton.swift in Sources */,
