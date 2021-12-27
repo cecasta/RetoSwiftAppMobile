@@ -9,11 +9,18 @@ import SwiftUI
 import LocalAuthentication
 
 struct Login: View {
-    @State private var email = ""
-    @State private var password = ""
+    //@State private var email = ""
+    //@State private var password = ""
     @EnvironmentObject var viewModel: AppViewModel
     
     @State private var isTouchIdValid: Bool = false
+    
+    // when firts time user logged in via email store this for future biometric login
+    @AppStorage("stored_User") var Stored_User = ""
+    @AppStorage("stored_Password") var Stored_Password = ""
+    
+    
+    //@Published var store_Info = false
     
     var body: some View {
             VStack {
@@ -23,12 +30,13 @@ struct Login: View {
                     .frame(width:150,height: 150)
                 
                 VStack {
-                    TextField("Correo Electrónico", text: $email)
+                    TextField("Correo Electrónico", text: $viewModel.email)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .padding()
                         .background(Color(.secondarySystemBackground))
-                    SecureField("Contraseña", text: $password)
+                    
+                    SecureField("Contraseña", text: $viewModel.password)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         .padding()
@@ -37,10 +45,10 @@ struct Login: View {
                     HStack {
                         Spacer()
                         Button(action:{
-                            guard !email.isEmpty, !password.isEmpty else {
+                            guard !viewModel.email.isEmpty, !viewModel.password.isEmpty else {
                                 return
                             }
-                            viewModel.signIn(email: email, password: password)
+                            viewModel.verifyUser()
                         }, label: {
                             Text("Login")
                                 .foregroundColor(Color.white)
@@ -48,17 +56,38 @@ struct Login: View {
                                 .background(Color.red)
                                 .cornerRadius(8)
                         })
-                        .opacity(email != "" && password != "" ? 1 : 0.5)
-                        .disabled(email != "" && password != "" ? false : true)
+                            .opacity(viewModel.email != "" && viewModel.password != "" ? 1 : 0.5)
+                            .disabled(viewModel.email != "" && viewModel.password != "" ? false : true)
+                            .alert(isPresented: $viewModel.alert, content: {
+                                         Alert(title: Text("Error"), message: Text(viewModel.alertMsg), dismissButton: .destructive(Text("OK")))
+                                     })
                         Spacer()
-
-                        TouchIDButton(isValid: $isTouchIdValid)
+                        if viewModel.getBioMetricStatus() {
+                            TouchIDButton(isValid: $isTouchIdValid)
+                        }
                     }
                     NavigationLink("Crear cuenta", destination: CreateAccount())
                         .padding()
+
                     
                 }
                 .padding()
+                .alert(isPresented: $viewModel.store_Info, content: {
+                    Alert(title: Text("Mensaje"), message: Text("Quieres guardar usuario y contraseña????"), primaryButton:
+                                .default(Text("Aceptar"), action: {
+                        // storing Info for Biometric....
+                        Stored_User = viewModel.email
+                        Stored_Password = viewModel.password
+                        withAnimation{
+                            self.viewModel.signedIn = true
+                        }
+                    }), secondaryButton: .cancel({
+                        // redirecting to home
+                        withAnimation{
+                            self.viewModel.signedIn = true
+                        }
+                    }))
+                })
             }
             .navigationTitle("Login")
     }
